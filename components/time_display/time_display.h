@@ -11,7 +11,8 @@ class TimeDisplay : public esphome::Component {
   void display_time(esphome::display::Display &display, float x, float y, 
                    esphome::display::TextAlign align, const char* format, 
                    esphome::Color color, const char* font) {
-    auto time = esphome::id(homeassistant_time).now();
+    // Access the time component using the global id function
+    auto time = esphome::id(esphome::time::homeassistant_time).now();
     if (!time.is_valid()) {
       return;
     }
