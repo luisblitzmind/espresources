@@ -1,4 +1,4 @@
-#pragma once
+#pragma once.
 #include "esphome.h"
 
 void display_time(esphome::display::Display &display, float x, float y, 
