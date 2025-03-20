@@ -1,7 +1,9 @@
 #pragma once
 #include "esphome.h"
 
-class TimeDisplay : public Component {
+namespace time_display {
+
+class TimeDisplay : public esphome::Component {
  public:
   void setup() override {
     // Nothing to do here
@@ -11,9 +13,10 @@ class TimeDisplay : public Component {
     // Nothing to do here
   }
   
-  void display_time(display::Display &display, float x, float y, TextAlign align, 
-                   const char* format, Color color, const char* font) {
-    auto time = id(homeassistant_time).now();
+  void display_time(esphome::display::Display &display, float x, float y, 
+                   esphome::display::TextAlign align, const char* format, 
+                   esphome::Color color, const char* font) {
+    auto time = esphome::id(homeassistant_time).now();
     if (!time.is_valid()) {
       return;
     }
@@ -24,3 +27,5 @@ class TimeDisplay : public Component {
     display.printf(x, y, font, color, align, "%s", buffer);
   }
 };
+
+}  // namespace time_display
