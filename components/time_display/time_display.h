@@ -5,13 +5,8 @@ namespace time_display {
 
 class TimeDisplay : public esphome::Component {
  public:
-  void setup() override {
-    // Nothing to do here
-  }
-  
-  void loop() override {
-    // Nothing to do here
-  }
+  void setup() override {}
+  void loop() override {}
   
   void display_time(esphome::display::Display &display, float x, float y, 
                    esphome::display::TextAlign align, const char* format, 
